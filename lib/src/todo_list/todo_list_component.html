@@ -1,0 +1,14 @@
+<!-- Components info: https://angulardart.dev/components -->
+
+<div>Teste para gerar PDF:
+  <material-input label="Digite a mensagem a ser salva em PDF"
+                  autoFocus floatingLabel style="width:80%"
+                  [(ngModel)]="text"
+                  (keyup.enter)="testePDF()">
+  </material-input>
+
+  <material-fab mini raised
+                (trigger)="testePDF()">
+    <material-icon icon="add"></material-icon>
+  </material-fab>
+</div>
