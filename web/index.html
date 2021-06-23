@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>generate_pdf_teste</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
-  <script>
+
+<head>
+  <title>generate_pdf_teste</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Declaração dos scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"
+    integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
+    crossorigin="anonymous"></script>
+
+  <!-- <script>
    var doc = new jsPDF()
-
-
     function hello(){
       doc.text('Hello world!', 10, 10);
       doc.save('a4.pdf');
     }
+  </script> -->
+
+  <!-- http://jsfiddle.net/xzZ7n/7806/
+  https://rawgit.com/MrRio/jsPDF/master/docs/module-cell.html#~table
+-->
+  <script>var pdf = new jsPDF('p', 'pt', 'letter');
+    source = $('#customers')[0];
+
+    specialElementHandlers = {
+      '#bypassme': function (element, renderer) {
+        return true
+      }
+    };
+    margins = {
+      top: 80,
+      bottom: 60,
+      left: 40,
+      width: 522
+    };
+    pdf.fromHTML(
+      source, // HTML string or DOM elem ref.
+      margins.left, // x coord
+      margins.top, { // y coord
+      'width': margins.width, // max width of content on PDF
+      'elementHandlers': specialElementHandlers
+    },
+      function (dispose) {
+        pdf.save('Test.pdf');
+      }, margins);
   </script>
-  
-    <script defer src="main.dart.js"></script>
-  </head>
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+
+  <script defer src="main.dart.js"></script>
+</head>
+
+<body>
+  <my-app>Loading...</my-app>
+</body>
+
 </html>

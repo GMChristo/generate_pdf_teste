@@ -10,3 +10,6 @@ external void setText(String texto, int x, int y);
 
 @JS('doc.save')
 external void savePdf(String nome);
+
+@JS('doc.table')
+external void createTable();
