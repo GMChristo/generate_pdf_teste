@@ -1,17 +1,40 @@
 <!-- Components info: https://angulardart.dev/components -->
 
-<div>Teste para gerar PDF:
+<div class="main-body">Teste para gerar PDF:
   <material-input label="Digite o nome do PDF"
                   autoFocus floatingLabel style="width:80%"
                   [(ngModel)]="namePdf">
   </material-input>
-  <material-input label="Digite a mensagem a ser salva em PDF"
+  <material-input class="item" label="Digite a mensagem a ser salva em PDF"
                   autoFocus floatingLabel style="width:80%"
                   [(ngModel)]="text">
   </material-input>
 
-  <material-fab mini raised
+  <material-fab class="item" mini raised
                 (trigger)="testePDF()">
     <material-icon icon="add"></material-icon>
   </material-fab>
+
+  <div id="table-example">
+    <table class="table" style="width:100%">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+    </table>
+</div>
+    
+<button class="button" onclick="javascript:demoFromHTML();">PDF</button>
+
 </div>

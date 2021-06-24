@@ -8,7 +8,7 @@ li {
 }
 
 li:hover {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
 }
 
 li material-checkbox {
@@ -22,4 +22,22 @@ li material-fab {
 
 .done {
   text-decoration: line-through;
+}
+
+.main-body {
+  background-color: gray;
+  padding: 10px 10px 10px 10px;
+}
+
+.main-body .item {
+}
+
+.table, th, td {
+  border: 1px solid white;
+}
+
+.button {
+  margin: 5px 0 0 0;
+  /* background-color: gray; */
+  color: darkblue;
 }

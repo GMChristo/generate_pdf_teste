@@ -5,8 +5,10 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding: 5vw;
+  background-color: black;
 }
 
 * {
   font-family: Roboto, Helvetica, Arial, sans-serif;
+  color: aqua;
 }

@@ -23,8 +23,10 @@
   <!-- http://jsfiddle.net/xzZ7n/7806/
   https://rawgit.com/MrRio/jsPDF/master/docs/module-cell.html#~table
 -->
-  <script>var pdf = new jsPDF('p', 'pt', 'letter');
-    source = $('#customers')[0];
+  <script>
+  function demoFromHTML() {
+  var pdf = new jsPDF('p', 'pt', 'letter');
+    source = $('#table-example')[0];
 
     specialElementHandlers = {
       '#bypassme': function (element, renderer) {
@@ -47,6 +49,7 @@
       function (dispose) {
         pdf.save('Test.pdf');
       }, margins);
+  }
   </script>
 
   <script defer src="main.dart.js"></script>
