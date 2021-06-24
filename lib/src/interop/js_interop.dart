@@ -6,7 +6,7 @@ import 'package:js/js.dart';
 external void hello();
 
 @JS('doc.text')
-external void setText(String texto, int x, int y);
+external void setText(var texto, int x, int y);
 
 @JS('doc.save')
 external void savePdf(String nome);

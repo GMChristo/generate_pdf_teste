@@ -4,6 +4,8 @@ import 'dart:typed_data';
 import 'package:angular/angular.dart';
 import 'package:angular/security.dart';
 import 'package:angular_components/angular_components.dart';
+import 'package:angular_components/utils/color/material.dart';
+import 'package:generate_pdf_teste/src/shared/utils/pdf_generate.dart';
 
 import 'todo_list_service.dart';
 
@@ -33,7 +35,8 @@ import '../interop/js_interop.dart';
 class TodoListComponent implements OnInit {
   final TodoListService todoListService;
   final DomSanitizationService sanitizer;
-  
+  PdfGenerate pdfGenerate = PdfGenerate();
+
   String namePdf = '';
   String text = '';
   String testeHtml = '';
@@ -41,38 +44,27 @@ class TodoListComponent implements OnInit {
   TodoListComponent(this.todoListService, this.sanitizer);
 
   @override
-  Future<Null> ngOnInit() async {
-  }
+  Future<Null> ngOnInit() async {}
 
-  // Future<void> testePDF() async {
-  //   final pdf = pw.Document();
-  //   pdf.addPage(
-  //     pw.Page(
-  //       build: (pw.Context context) => pw.Center(
-  //         child: pw.Text(text),
-  //       ),
-  //     ),
-  //   );
-  //   var array = await pdf.save();
-  //   print(array);
-  //  final pdfFile = html.Blob(
-  //     <Uint8List>[Uint8List.fromList(array)],
-  //     'application/pdf',
-  //   );
-  //   final pdfUrl = html.Url.createObjectUrl(pdfFile);
-  //   final html.HtmlDocument doc = js.context['document'];
-  //   final link = html.AnchorElement(href: pdfUrl);
-  //   link.download = '$namePdf.pdf';
-  //   doc.body?.append(link);
-  //   link.click();
-  //   link.remove();
-  // }
-
+  var pessoa = [
+    ['Jill', 'Smith', '50', 'F', 'a'],
+    ['Gabriel', 'Christo', '31', 'M', 'f'],
+    ['Eve', 'Jackson', '94', 'F', 'n']
+  ];
+  
   Future<void> testePDF() async {
-    //Usando script js para salvar o arquivo, script adicionado no index e
-    //criado js_interop.dar para fazer a ligação com o script
-    setText('$text', 10, 10);
-    savePdf('$namePdf.pdf');
-
+    await pdfGenerate.getPdf(namePdf, pessoa);
   }
+
+  // * Usando script js para salvar o arquivo, script adicionado no index e
+  // * criado js_interop.dar para fazer a ligação com o script
+  
+  //Future<void> testePDF() async {
+  //
+  // var tabela = namePdf;
+  // print(tabela);
+  //setText('$text', 10, 10);
+  //setText('$tabela', 10, 10);
+  //savePdf('$namePdf.pdf');
+  // }
 }
